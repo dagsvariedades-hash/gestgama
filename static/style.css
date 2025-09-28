@@ -1,18 +1,22 @@
+/* Tipografía base */
 body {
   font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
+/* Fondo animado */
 .bg-animated {
   background: linear-gradient(-45deg, #0d6efd, #6610f2, #20c997, #6610f2);
   background-size: 400% 400%;
   animation: gradientBG 15s ease infinite;
 }
+
 @keyframes gradientBG {
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
+/* ---------- SIDEBAR (modo escritorio) ---------- */
 .sidebar {
   width: 260px;
   background: rgba(0,0,0,0.6);
@@ -23,15 +27,32 @@ body {
   position: sticky;
   top: 0;
 }
-.sidebar .logo { width: 80px; }
-.sidebar .nav-link { color:#f8f9fa; padding:.75rem 1rem; transition:background .2s; }
-.sidebar .nav-link:hover { background-color: rgba(255,255,255,0.15); border-radius: .5rem; }
-.social a { color:white; }
 
+.sidebar .logo {
+  width: 80px;
+}
+
+.sidebar .nav-link {
+  color: #f8f9fa;
+  padding: .75rem 1rem;
+  transition: background .2s;
+}
+
+.sidebar .nav-link:hover {
+  background-color: rgba(255,255,255,0.15);
+  border-radius: .5rem;
+}
+
+.social a {
+  color: white;
+}
+
+/* Contenido principal */
 .hero {
   padding: 6rem 1rem;
 }
 
+/* Tarjetas con efecto “glass” */
 .glass {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(15px);
@@ -39,8 +60,46 @@ body {
   color: #fff;
 }
 
+/* Tema oscuro opcional */
 @media (prefers-color-scheme: dark) {
   .glass {
     background: rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* ---------- RESPONSIVE para móviles y tabletas ---------- */
+@media (max-width: 768px) {
+  /* Barra lateral se convierte en barra superior */
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+  }
+
+  /* Navegación horizontal desplazable */
+  .sidebar ul.nav {
+    flex-direction: row;
+    overflow-x: auto;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .sidebar .nav-link {
+    padding: 0.5rem 0.75rem;
+    white-space: nowrap;
+  }
+
+  /* El contenido ya no necesita margen izquierdo */
+  main {
+    margin-left: 0;
+  }
+
+  /* Oculta iconos sociales si lo prefieres (opcional) */
+  .sidebar .social {
+    display: none;
   }
 }
