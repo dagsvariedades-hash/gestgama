@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 videos = {
     "inicial": [
-        {"titulo": "Bienvenida", "url": "https://www.youtube.com/embed/ID1"},
+        {"titulo": "Bienvenida", "url": "https://youtu.be/S3PR6wZLHac?feature=shared"},
         {"titulo": "Primeros Pasos", "url": "https://www.youtube.com/embed/ID2"},
     ],
     "servicios": [{"titulo": "Reportes Avanzados", "url": "https://www.youtube.com/embed/ID3"}],
@@ -32,3 +32,4 @@ def contacto():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
